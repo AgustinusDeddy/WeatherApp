@@ -21,7 +21,12 @@ export default function Navbar() {
               <Input icon="search" placeholder="Search..." />
             </Menu.Item> */}
             <Menu.Item>
-              <StateForm direction="row" />
+              <StateForm
+                direction="row"
+                onSubmit={state => {
+                  console.log();
+                }}
+              />
             </Menu.Item>
           </Menu.Menu>
         </Container>

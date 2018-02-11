@@ -36,3 +36,39 @@ body {
     align-items: center;
     margin-bottom: 50;
 }
+
+.forecast-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+    max-width: 1200px;
+    margin: 90px auto;
+}
+
+.dayContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    margin: 35px;
+}
+
+.forecast-header {
+    font-size: 65px;
+    color: #333;
+    font-weight: 100;
+    text-align: center;
+    padding-top: 80px;
+}
+
+.subheader {
+    font-size: 30px;
+    color: #333;
+    font-weight: 100;
+}
+
+.weather {
+    height: 130px;
+}

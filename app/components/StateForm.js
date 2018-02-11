@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Button, Icon, Input } from 'semantic-ui-react';
+import { Link } from 'react-router-dom';
 
 export default class StateForm extends Component {
   static propTypes = {
@@ -15,7 +16,11 @@ export default class StateForm extends Component {
     state: '',
   };
 
-  //   handleSubmitState() {}
+  // handleSubmitState = event => {
+  //   event.preventDefault();
+
+  //   this.props.onSubmit(this.state.state);
+  // };
 
   handleChangeState = event => {
     const val = event.target.value;
@@ -39,12 +44,20 @@ export default class StateForm extends Component {
           <Icon name="search" />
         </Input>
 
-        <Button primary animated style={{ margin: 10 }}>
-          <Button.Content visible>See Forecast</Button.Content>
-          <Button.Content hidden>
-            <Icon name="globe" />
-          </Button.Content>
-        </Button>
+        <Link
+          className="button"
+          to={{
+            pathname: `/forecast`,
+            search: `?state=${this.state.state}`,
+          }}
+        >
+          <Button primary animated style={{ margin: 10 }} onClick={this.handleSubmitState}>
+            <Button.Content visible>See Forecast</Button.Content>
+            <Button.Content hidden>
+              <Icon name="globe" />
+            </Button.Content>
+          </Button>
+        </Link>
       </div>
     );
   }

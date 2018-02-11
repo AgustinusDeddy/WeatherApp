@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const _baseURL = 'http://api.openweathermap.org/data/2.5/';
-const _APIKEY = '0e271961a47a545a5068e01951f3a9c9';
+const _APIKEY = 'b714ec74bbab5650795063cb0fdf5fbe';
 
 function handleError(error) {
   console.warn(error);

@@ -1,6 +1,7 @@
 import React from 'react';
 import { Input, Menu, Container, Icon } from 'semantic-ui-react';
 import { Link } from 'react-router-dom';
+import StateForm from './StateForm';
 
 export default function Navbar() {
   return (
@@ -12,12 +13,15 @@ export default function Navbar() {
               <Icon name="cloud" size="big" /> Weather App
             </Link>
           </Menu.Item>
-          <Menu.Item as="a">
+          <Menu.Item>
             <Link to="/about">About</Link>
           </Menu.Item>
           <Menu.Menu position="right">
-            <Menu.Item>
+            {/* <Menu.Item>
               <Input icon="search" placeholder="Search..." />
+            </Menu.Item> */}
+            <Menu.Item>
+              <StateForm direction="row" />
             </Menu.Item>
           </Menu.Menu>
         </Container>

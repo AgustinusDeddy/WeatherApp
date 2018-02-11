@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import { Button, Icon, Input } from 'semantic-ui-react';
 
-export class StateForm extends Component {
+export default class StateForm extends Component {
   static propTypes = {
     direction: PropTypes.string,
   };
@@ -11,22 +12,39 @@ export class StateForm extends Component {
   };
 
   state = {
-    state: 'Kuala Lumpur',
+    state: '',
+  };
+
+  //   handleSubmitState() {}
+
+  handleChangeState = event => {
+    const val = event.target.value;
+    console.log(val);
+    this.setState(() => ({ state: val }));
   };
 
   render() {
     return (
-      <div className="zipcode-container" style={{ flexDirection: this.props.direction }}>
-        <input
+      <div className="stateFromContainer" style={{ flexDirection: this.props.direction }}>
+        {/* <input
           className="form-control"
           onChange={this.handleUpdateState}
           placeholder="Kuala Lumpur"
           type="text"
           value={this.state.state}
-        />
-        <button type="button" style={{ margin: 10 }} className="btn btn-success" onClick={this.handleSubmitState}>
-          See Forecast
-        </button>
+        /> */}
+
+        <Input icon placeholder="Kuala Lumpur" defaultValue={this.state.state}>
+          <input onChange={this.handleChangeState} />
+          <Icon name="search" />
+        </Input>
+
+        <Button primary animated style={{ margin: 10 }}>
+          <Button.Content visible>See Forecast</Button.Content>
+          <Button.Content hidden>
+            <Icon name="globe" />
+          </Button.Content>
+        </Button>
       </div>
     );
   }

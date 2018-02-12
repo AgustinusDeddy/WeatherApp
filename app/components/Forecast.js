@@ -33,7 +33,7 @@ export default class Forecast extends Component {
     city.city = this.city;
     this.props.history.push({
       pathname: `/details/${this.city}`,
-      state: city,
+      data: city,
     });
   }
 

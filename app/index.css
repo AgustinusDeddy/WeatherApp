@@ -44,7 +44,7 @@ body {
     flex-direction: row;
     flex-wrap: wrap;
     max-width: 1200px;
-    margin: 90px auto;
+    margin: 50px auto;
 }
 
 .dayContainer {
@@ -53,6 +53,14 @@ body {
     justify-content: center;
     flex-direction: column;
     margin: 35px;
+}
+
+.description-container {
+    font-size: 34px;
+    font-weight: 100;
+    max-width: 400px;
+    margin: 0 auto;
+    text-align: center;
 }
 
 .forecast-header {

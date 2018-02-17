@@ -1,29 +1,51 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const webpack = require('webpack');
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
-module.exports = {
-  entry: ['babel-polyfill', './app/index.js'],
-  output: {
-    path: path.resolve(__dirname, 'dist'),
-    filename: 'index.bundle.js',
-    publicPath: '/',
-  },
-  module: {
-    rules: [
-      { test: /\.(js)$/, use: 'babel-loader' }, // use babel loader for all js files
-      { test: /\.js$/, exclude: /node_modules/, use: ['babel-loader', 'eslint-loader'] },
-      { test: /\.css$/, use: ['style-loader', 'css-loader'] },
+module.exports = env => {
+  const isProduction = env === 'production';
+  console.log('env', env);
+
+  const cssExtract = new ExtractTextPlugin('styles.css');
+
+  return {
+    entry: ['babel-polyfill', './app/index.js'],
+    output: {
+      path: path.resolve(__dirname, 'dist'),
+      filename: 'index.bundle.js',
+      publicPath: '/',
+    },
+    module: {
+      rules: [
+        { test: /\.(js)$/, use: 'babel-loader' }, // use babel loader for all js files
+        { test: /\.js$/, exclude: /node_modules/, use: ['babel-loader', 'eslint-loader'] },
+        {
+          test: /\.css$/,
+          use: cssExtract.extract({
+            use: [
+              {
+                loader: 'css-loader',
+                options: {
+                  sourceMap: true,
+                },
+              },
+            ],
+          }),
+        },
+      ],
+    },
+    devtool: isProduction ? 'source-map' : 'inline-source-map',
+    devServer: {
+      historyApiFallback: true,
+    },
+    plugins: [
+      new HtmlWebpackPlugin({
+        template: 'app/index.html',
+      }),
+      cssExtract,
     ],
-  },
-  devServer: {
-    historyApiFallback: true,
-  },
-  plugins: [
-    new HtmlWebpackPlugin({
-      template: 'app/index.html',
-    }),
-  ],
+  };
 };
 
 // if (process.env.NODE_ENV === 'production') {

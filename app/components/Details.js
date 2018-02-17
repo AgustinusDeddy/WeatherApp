@@ -8,7 +8,7 @@ export default function Details({ location }) {
   const state = location.data;
 
   return (
-    <div style={{ 'padding-top': '70px' }}>
+    <div style={{ paddingTop: '70px' }}>
       <WeatherItem day={state} />
       <div className="description-container">
         <p>{state.city}</p>

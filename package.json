@@ -4,7 +4,8 @@
   "description": "This is my take to learn React JS with creating weather App",
   "main": "index.js",
   "scripts": {
-    "start": "webpack-dev-server --hot"
+    "start": "webpack-dev-server --hot",
+    "build": "webpack -p --env production"
   },
   "babel": {
     "presets": [
@@ -23,6 +24,7 @@
   "dependencies": {
     "animated": "^0.2.2",
     "axios": "^0.17.1",
+    "extract-text-webpack-plugin": "^3.0.0",
     "prop-types": "^15.6.0",
     "query-string": "^5.1.0",
     "react": "^16.2.0",

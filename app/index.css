@@ -23,12 +23,13 @@ body {
 .home-container {
     height: 100%;
     width: 100%;
-    background-size: cover;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     padding-top: 90px;
+    background: url('./images/background.jpg');
+    background-size: cover;
 }
 
 .stateFromContainer {
@@ -94,4 +95,76 @@ body {
 
 .fade-exit {
     display: none;
+}
+
+.img01d {
+    content: url('./images/weather-icons/01d.svg')
+}
+
+.img01n {
+    content: url('./images/weather-icons/01n.svg')
+}
+
+.img02d {
+    content: url('./images/weather-icons/02d.svg')
+}
+
+.img02n {
+    content: url('./images/weather-icons/02n.svg')
+}
+
+.img03d {
+    content: url('./images/weather-icons/03d.svg')
+}
+
+.img03n {
+    content: url('./images/weather-icons/03n.svg')
+}
+
+.img04d {
+    content: url('./images/weather-icons/04d.svg')
+}
+
+.img04n {
+    content: url('./images/weather-icons/04n.svg')
+}
+
+.img09d {
+    content: url('./images/weather-icons/09d.svg')
+}
+
+.img09n {
+    content: url('./images/weather-icons/09n.svg')
+}
+
+.img10d {
+    content: url('./images/weather-icons/10d.svg')
+}
+
+.img10n {
+    content: url('./images/weather-icons/10n.svg')
+}
+
+.img11d {
+    content: url('./images/weather-icons/11d.svg')
+}
+
+.img11n {
+    content: url('./images/weather-icons/11n.svg')
+}
+
+.img13d {
+    content: url('./images/weather-icons/13d.svg')
+}
+
+.img13n {
+    content: url('./images/weather-icons/13n.svg')
+}
+
+.img50n {
+    content: url('./images/weather-icons/50n.svg')
+}
+
+.img50d {
+    content: url('./images/weather-icons/50d.svg')
 }

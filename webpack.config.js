@@ -7,7 +7,7 @@ module.exports = env => {
   const isProduction = env === 'production';
   console.log('env', env);
 
-  const cssExtract = new ExtractTextPlugin('styles.css');
+  // const cssExtract = new ExtractTextPlugin('styles.css');
 
   return {
     entry: ['babel-polyfill', './app/index.js'],
@@ -21,18 +21,32 @@ module.exports = env => {
         { test: /\.(js)$/, use: 'babel-loader' }, // use babel loader for all js files
         { test: /\.js$/, exclude: /node_modules/, use: ['babel-loader', 'eslint-loader'] },
         {
-          test: /\.css$/,
-          use: cssExtract.extract({
-            use: [
-              {
-                loader: 'css-loader',
-                options: {
-                  sourceMap: true,
-                },
+          test: /\.(png|jp(e*)g|svg|jpg)$/,
+          // include: '/app/images/weather-icons',
+          use: [
+            {
+              loader: 'url-loader',
+              options: {
+                limit: 8000, // Convert images < 8kb to base64 strings
+                name: 'images/[hash]-[name].[ext]',
               },
-            ],
-          }),
+            },
+          ],
         },
+        { test: /\.css$/, use: ['style-loader', 'css-loader'] },
+        // {
+        //   test: /\.css$/,
+        //   use: cssExtract.extract({
+        //     use: [
+        //       {
+        //         loader: 'css-loader',
+        //         options: {
+        //           sourceMap: true,
+        //         },
+        //       },
+        //     ],
+        //   }),
+        // },
       ],
     },
     devtool: isProduction ? 'source-map' : 'inline-source-map',
@@ -43,7 +57,7 @@ module.exports = env => {
       new HtmlWebpackPlugin({
         template: 'app/index.html',
       }),
-      cssExtract,
+      // cssExtract,
     ],
   };
 };

@@ -7,6 +7,7 @@ import StateForm from './StateForm';
 import Forecast from './Forecast';
 import Details from './Details';
 import About from './About';
+// import backgroundImage from '../images/background.jpg';
 
 export default function App() {
   return (
@@ -24,7 +25,8 @@ export default function App() {
                       exact
                       path="/"
                       render={() => (
-                        <div className="home-container" style={{ backgroundImage: "url('app/images/background.jpg')" }}>
+                        // <div className="home-container" style={{ backgroundImage }}>
+                        <div className="home-container">
                           <h1>Enter a City and State</h1>
                           <StateForm />
                         </div>

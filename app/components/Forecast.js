@@ -25,7 +25,7 @@ export default class Forecast extends Component {
 
   getData = async state => {
     const result = await getForecast(state);
-
+    console.log('get data', result);
     this.setState(() => ({ result, loading: false }));
   };
 
@@ -39,8 +39,15 @@ export default class Forecast extends Component {
 
   render() {
     console.log(this.props, 'props..');
-    return this.state.loading === true ? (
-      <h1 className="forecast-header"> Loading </h1>
+
+    if (this.state.loading === true) {
+      return <h1 className="forecast-header"> Loading </h1>;
+    }
+    console.log(this.state.result, 'result list');
+    return this.state.result === null ? (
+      <h1 className="forecast-header" style={{ color: 'red' }}>
+        Cannot find state/city {this.city}
+      </h1>
     ) : (
       <div>
         <h1 className="forecast-header">{this.city}</h1>
